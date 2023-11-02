@@ -1,0 +1,136 @@
+{% extends 'Photoapp/base.html' %}
+{% load static %}
+
+{% block content%}
+
+<!-- Navbar Start -->
+ <div class="container-fluid p-0 nav-bar">
+    <nav class="navbar navbar-expand-lg bg-none navbar-dark py-3">
+        <a href="{% url 'home'%}" class="navbar-brand px-lg-4 m-0">
+           <h1 class="m-0 display-4 text-uppercase text-white">World in my lens</h1>
+        </a>
+        <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+            <div class="navbar-nav ml-auto p-4">
+               <a href="{% url 'home'%}" class="nav-item nav-link">Home</a>
+               <a href="{% url 'aboutus'%}" class="nav-item nav-link active">About Us</a>
+               <a href="{% url 'photos'%}" class="nav-item nav-link">Photos</a>
+               <a href="{% url 'author'%}" class="nav-item nav-link">Photographers</a>
+               <a href="{% url 'contact'%}" class="nav-item nav-link">Contact</a>
+               <ul class="navbar-nav">
+                   <li class="nav-item">
+                     {% if request.user.is_authenticated %}
+                       <a class="nav-link" href="{% url 'logout' %}">
+                     {% else %}
+                     <a href="{% url 'usuario'%}" class="nav-item nav-link">Registrarse</a>
+                       <a class="nav-link" href="{% url 'login' %}">
+                     {% endif %}
+                     
+                     {% if request.user.is_authenticated %}Logout{% else %}Login{% endif %}
+                     </a>
+                   </li>
+               </ul>
+              
+            </div>
+        </div>
+    </nav>
+</div>
+<!-- Navbar End -->
+
+<!-- Page Header Start -->
+<div class="container-fluid page-header mb-5 position-relative overlay-bottom">
+    <div class="d-flex flex-column align-items-center justify-content-center pt-0 pt-lg-5" style="min-height: 400px">
+        <h1 class="display-4 mb-3 mt-0 mt-lg-5 text-white text-uppercase">About Us</h1>
+        
+    </div>
+</div>
+<!-- Page Header End -->
+
+<!-- About Start -->
+<div class="container-fluid py-5">
+    <div class="container">
+        <div class="section-title">
+            <h4 class="text-primary text-uppercase" style="letter-spacing: 5px;">About Us</h4>
+            <h1 class="display-4">Photographing Since 1999</h1>
+        </div>
+        <div class="row">
+            <div class="col-lg-4 py-0 py-lg-5">
+                <h1 class="mb-3">Our Story</h1>
+                <h5 class="mb-3">Creamos este sitio web para que ustedes puedan compartir su material fotográfico con el mundo.</h5>
+                <p>Los invitamos a loguearse y a compartir las imagenes que capturan.</p>
+                <a href="{% url 'login' %}" class="btn btn-secondary font-weight-bold py-2 px-4 mt-2">Login</a>
+            </div>
+            <div class="col-lg-4 py-5 py-lg-0" style="min-height: 500px;">
+                <div class="position-relative h-100">
+                    <img class="position-absolute w-100 h-100" src="{% static 'img\—Pngtree—camera_5624134.png' %}" style="object-fit: cover;">
+                </div>
+            </div>
+            <div class="col-lg-4 py-0 py-lg-5">
+                <h1 class="mb-3">Our Vision</h1>
+                <p> Tenemos algunas normas para la publicación de fotos.</p>
+                <h5 class="mb-3"><i class="fa fa-check text-primary mr-3"></i>Auditoria propia</h5>
+                <h5 class="mb-3"><i class="fa fa-check text-primary mr-3"></i>Calidad clara</h5>
+                <h5 class="mb-3"><i class="fa fa-check text-primary mr-3"></i>Descripción necesaria</h5>
+                <a href="" class="btn btn-primary font-weight-bold py-2 px-4 mt-2">Learn More</a>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- About End -->
+
+<!-- Testimonial Start -->
+<div class="container-fluid py-5">
+    <div class="container">
+        <div class="section-title">
+            <h4 class="text-primary text-uppercase" style="letter-spacing: 5px;">Nos presentamos:</h4>
+            <h1 class="display-4">Quienes somos?</h1>
+        </div>
+        <div class="owl-carousel testimonial-carousel">
+            <div class="testimonial-item">
+                <div class="d-flex align-items-center mb-3">
+                    <img class="img-fluid" src="{% static 'img\SofiaAguirreHasin.jpg' %}" alt="">
+                    <div class="ml-3">
+                        <h4>Sofia Aguirre Hasin</h4>
+                        <i>Estudiante de programación</i>
+                    </div>
+                </div>
+                <p class="m-0">Actualmente cursando Python Developer en Digitalers, Analista en Ciberseguridad y Data Analyst</p>
+            </div>
+            <div class="testimonial-item">
+                <div class="d-flex align-items-center mb-3">
+                    <img class="img-fluid" src="{% static 'img\person_4.jpg' %}" alt="">
+                    <div class="ml-3">
+                        <h4>Tomas Amilcar</h4>
+                        <i>Analista en sistemas</i>
+                    </div>
+                </div>
+                <p class="m-0">Fotógrafo, experto en fotografía industrial, de estudio y bodas.</p>
+            </div>
+            <div class="testimonial-item">
+                <div class="d-flex align-items-center mb-3">
+                    <img class="img-fluid" src="{% static 'img\person_6.jpg' %}" alt="">
+                    <div class="ml-3">
+                        <h4>Cristina Romagosa</h4>
+                        <i>Fotógrafa profesional</i>
+                    </div>
+                </div>
+                <p class="m-0">Docente en fotografía,laboratorio en blanco y negro, photoshop, iluminación.</p>
+            </div>
+            <div class="testimonial-item">
+                <div class="d-flex align-items-center mb-3">
+                    <img class="img-fluid" src="{% static 'img\img_6.jpg' %}" alt="">
+                    <div class="ml-3">
+                        <h4>Nicolas Richi</h4>
+                        <i>Licenciado en fotografía y creación digital</i>
+                    </div>
+                </div>
+                <p class="m-0">Community manager, fotógrafo, agente de diseño.</p>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Testimonial End -->
+
+{%endblock content%}

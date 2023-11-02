@@ -1,0 +1,28 @@
+{% extends 'Photoapp/base.html' %}
+{% load static %}
+
+{% block content%}
+
+<!-- Page Header Start -->
+<div class="container-fluid page-header mb-5 position-relative overlay-bottom">
+    <div class="d-flex flex-column align-items-center justify-content-center pt-0 pt-lg-5" style="min-height: 400px">
+        <h1 class="display-4 mb-3 mt-0 mt-lg-5 text-white text-uppercase">Registrarse</h1>
+    </div>
+</div>
+<!-- Page Header End -->
+
+<!-- Generar Usuario Start -->
+<form action="" method="POST">
+    <h2 class="text-center">Complete los campos y tilde el check para poder cargar sus capturas</h2>   
+    {% csrf_token %}
+    <table>           
+    {{form.as_p}}
+    </table>   
+    <div class="d-grid">
+        <button class="btn btn-primary btn-lg" id="submitButton" type="submit">Crear Usuario</button> <a href="{% url 'home' %}" class="btn btn-secondary btn-lg"> Cancelar</a>
+    </div>
+</form>   
+<!-- Generar Usuario End -->
+
+
+{% endblock content%}

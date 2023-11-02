@@ -1,0 +1,48 @@
+{% extends 'Photoapp/base.html' %}
+{% load static %}
+
+{% block content%}
+
+<!-- Page Header Start -->
+<div class="container-fluid page-header mb-5 position-relative overlay-bottom">
+    <div class="d-flex flex-column align-items-center justify-content-center pt-0 pt-lg-5" style="min-height: 400px">
+        <h1 class="display-4 mb-3 mt-0 mt-lg-5 text-white text-uppercase">Editar Fotografías</h1>
+    </div>
+</div>
+<!-- Page Header End -->
+
+<!-- Update Photo Start -->
+<h2 class="text-center">Modifique los datos que quiera actualizar</h2>
+<main role="main">
+    <div class="container">
+      <div class="row mb-5 mt-3">
+        <div class="col-md-9 mx-auto">
+              {% if 'ok' in request.GET %}
+                <p style="color:green;">Foto editada correctamente
+                  <a href="{% url 'photos' %}">
+                    Haz clic para ver el la lista de fotos
+                  </a>
+                </p>
+              {% endif %}        
+              <form action="" method="post" enctype='multipart/form-data'>{% csrf_token %}
+                    {{ form.as_p }}
+  
+                    {% if photo.image %}
+                       <img class="rounded float-left img-thumbnail img-fluid" width="464" heigth="296" src="{{photo.image.url}}" alt="{{photo.image.url}}"/>
+                       {% else %}
+                       <img class="rounded float-left img-thumbnail img-fluid" width="464" heigth="296" src="{% static 'photoapp/img/photo.jpg' %}">
+                    {% endif %}
+  
+                  <div class="text-center">
+                    <input type="submit" class="btn btn-primary btn-block" value="Editar Foto" />
+                    <br>
+                    <a href="{% url 'photos' %}" class="btn btn-primary font-weight-bold py-3 px-5"> Cancelar</a>
+                  </div>
+              </form>
+        </div>
+      </div>
+    </div>
+  </main>
+<!-- Update Photo End -->
+
+{%endblock content%}

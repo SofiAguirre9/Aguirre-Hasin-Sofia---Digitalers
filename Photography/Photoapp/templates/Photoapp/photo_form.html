@@ -1,0 +1,29 @@
+{% extends 'Photoapp/base.html' %}
+{% load static %}
+
+{% block content%}
+
+<!-- Page Header Start -->
+   <div class="container-fluid page-header mb-5 position-relative overlay-bottom">
+      <div class="d-flex flex-column align-items-center justify-content-center pt-0 pt-lg-5" style="min-height: 400px">
+        <h1 class="display-4 mb-3 mt-0 mt-lg-5 text-white text-uppercase">Agregar Fotografías</h1>
+     </div>
+   </div>
+<!-- Page Header End -->
+
+<!-- Form Photo Start -->
+<h2 class="text-center">Complete los campos para poder cargar su foto</h2>
+<main role="main">
+    <div class="container">
+        <div class="row mb-5 mt-3">
+            <form action="" method="post" enctype='multipart/form-data'> {% csrf_token %}
+                {{ form.as_p }}
+                <input type="submit" class="btn btn-primary" value="Agregar Foto" />
+                <a href="{% url 'photos' %}" class="btn btn-primary"> Cancelar</a>
+            </form>
+        </div>
+    </div>
+</main>
+<!-- Form Photo End -->
+
+{%endblock content%}
