@@ -18,6 +18,16 @@ Usuarios:
 -User: sofia -Pass: sofia9
 -User: digitalers -Pass: dig2023py
 
+> Template descargado de: https://htmlcodex.com/
+
+Para poder visualizar el sitio web:
+1) Clonar el repositorio
+2) Activar el entorno virtual: env
+3) Acceder al directorio Photography
+4) Instale requirements.txt
+5) Configure la base de datos
+6) Ejecutar la aplicación con python manage.py runserver
+
 
 
 
